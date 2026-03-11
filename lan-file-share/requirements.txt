@@ -1,0 +1,6 @@
+﻿fastapi
+uvicorn
+python-multipart
+qrcode[pil]
+python-dotenv
+jinja2

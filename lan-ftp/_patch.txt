@@ -1,0 +1,25 @@
+﻿*** Begin Patch
+*** Update File: d:\FTP\lan-ftp\main.py
+@@
+-def load_config(path: str) -> configparser.ConfigParser:
+-    cfg = configparser.ConfigParser()
+-    if not os.path.exists(path):
+-        print(f"配置文件不存在: {path}")
+-        sys.exit(1)
+-    cfg.read(path, encoding="utf-8")
+-    return cfg
++def load_config(path: str) -> configparser.ConfigParser:
++    cfg = configparser.ConfigParser()
++    if not os.path.exists(path):
++        print(f"配置文件不存在: {path}")
++        sys.exit(1)
++    # 兼容 UTF-8 BOM 文件
++    cfg.read(path, encoding="utf-8-sig")
++    return cfg
+@@
+-    ucfg = configparser.ConfigParser()
+-    ucfg.read(path, encoding="utf-8")
++    ucfg = configparser.ConfigParser()
++    # 兼容 UTF-8 BOM 文件
++    ucfg.read(path, encoding="utf-8-sig")
+*** End Patch

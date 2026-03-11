@@ -1,0 +1,145 @@
+﻿:root {
+  --bg-gradient: radial-gradient(circle at top left, #e0f2fe, transparent 40%),
+    radial-gradient(circle at top right, #fef9c3, transparent 45%),
+    linear-gradient(180deg, #f8fafc, #eef2f7);
+  --card: rgba(255, 255, 255, 0.9);
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(15, 23, 42, 0.1);
+}
+
+body[data-theme='dark'] {
+  --bg-gradient: radial-gradient(circle at top left, #1f2937, transparent 50%),
+    radial-gradient(circle at top right, #0f172a, transparent 45%),
+    linear-gradient(180deg, #0b1220, #111827);
+  --card: rgba(15, 23, 42, 0.9);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --border: rgba(148, 163, 184, 0.2);
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-gradient);
+  z-index: -1;
+}
+
+.btn {
+  background: #0f172a;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: white;
+}
+
+body[data-theme='dark'] .input {
+  background: rgba(15, 23, 42, 0.8);
+  color: var(--text);
+}
+
+.crumb {
+  background: rgba(15, 23, 42, 0.05);
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.08);
+  font-size: 14px;
+}
+
+.icon[data-kind='folder']::after { content: '📁'; }
+.icon[data-kind='image']::after { content: '🖼️'; }
+.icon[data-kind='video']::after { content: '🎞️'; }
+.icon[data-kind='text']::after { content: '📄'; }
+.icon[data-kind='file']::after { content: '📦'; }
+
+.file-link {
+  text-align: left;
+}
+
+.context-menu {
+  position: fixed;
+  z-index: 50;
+  min-width: 140px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+  padding: 6px;
+}
+
+.context-menu button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.context-menu button:hover {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.context-menu .danger {
+  color: #dc2626;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.modal-card {
+  width: 92%;
+  max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.25);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .btn {
+    padding: 0.45rem 0.8rem;
+  }
+}

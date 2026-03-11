@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>登录 | LAN File Share</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body class="min-h-full bg-slate-50 text-slate-900" data-theme="light">
+  <div class="page-bg"></div>
+  <div class="mx-auto flex min-h-full max-w-md flex-col justify-center px-6 py-12">
+    <div class="flex justify-end">
+      <button class="btn btn-ghost" id="btnTheme">暗黑模式</button>
+    </div>
+    <div class="mt-4 rounded-2xl bg-white/90 p-8 shadow-lg ring-1 ring-black/5">
+      <h1 class="text-2xl font-bold">登录</h1>
+      <p class="mt-2 text-sm text-slate-600">局域网内访问保护</p>
+      {% if error %}
+        <div class="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{{ error }}</div>
+      {% endif %}
+      <form class="mt-6 space-y-4" method="post" action="/login">
+        <div>
+          <label class="text-sm text-slate-600">用户名</label>
+          <input name="username" class="input" placeholder="admin" required />
+        </div>
+        <div>
+          <label class="text-sm text-slate-600">密码</label>
+          <input type="password" name="password" class="input" placeholder="123456" required />
+        </div>
+        <button class="btn w-full" type="submit">登录</button>
+      </form>
+    </div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
